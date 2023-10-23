@@ -1,0 +1,16 @@
+jops:
+    -title
+    -location
+    -company name
+    -company logo
+    -company website
+    -company email
+    company description
+    -salary
+    -created at
+    -experince
+    -jop nature[full time , part time , remote , freelance]
+    -category
+    -filter
+    -Vacancy 
+    -jop description
