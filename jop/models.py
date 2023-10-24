@@ -2,7 +2,7 @@ from django.db import models
 from django_countries.fields import CountryField
 from django.utils import timezone
 
-# Create your models here.\
+
 
 JOP_CHOISE = (
     ('FullTime','Full_Time'),
@@ -17,7 +17,7 @@ class Jop(models.Model):
     company =models.ForeignKey('Company', on_delete=models.CASCADE, related_name='jop_company')
     salary_start = models.PositiveIntegerField(null=True, blank=True)
     salary_end = models.PositiveIntegerField(null=True, blank=True)
-    cratesd_at = models.DateTimeField(default=timezone.now)
+    crated_at = models.DateTimeField(default=timezone.now)
     vacancy = models.PositiveIntegerField()
     experince = models.PositiveIntegerField()
     jop_nature = models.CharField(choices=JOP_CHOISE , max_length=10)
