@@ -7,4 +7,4 @@ def jop_list(request):
 
 def jop_detail(request, slug):
     jobs = Jop.objects.get(slug=slug)
-    return render(request, 'job/job_details.html', {})
+    return render(request, 'job/job_details.html', {'jop':jobs})

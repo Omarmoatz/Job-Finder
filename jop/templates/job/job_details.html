@@ -11,7 +11,7 @@
                 <div class="row">
                     <div class="col-xl-12">
                         <div class="hero-cap text-center">
-                            <h2>UI/UX Designer</h2>
+                            <h2>{{jop}}</h2>
                         </div>
                     </div>
                 </div>
@@ -33,12 +33,12 @@
                                 </div>
                                 <div class="job-tittle">
                                     <a href="#">
-                                        <h4>Digital Marketer</h4>
+                                        <h4>{{job}}</h4>
                                     </a>
                                     <ul>
-                                        <li>Creative Agency</li>
-                                        <li><i class="fas fa-map-marker-alt"></i>Athens, Greece</li>
-                                        <li>$3500 - $4000</li>
+                                        <li>{{jop.company}}</li>
+                                        <li><i class="fas fa-map-marker-alt"></i>{{jop.location}}</li>
+                                        <li>${{jop.salary_start}} - ${{jop.salary_end}}</li>
                                     </ul>
                                 </div>
                             </div>
@@ -51,7 +51,7 @@
                                 <div class="small-section-tittle">
                                     <h4>Job Description</h4>
                                 </div>
-                                <p>It is a long established fact that a reader will beff distracted by vbthe creadable content of a page when looking at its layout. The pointf of using Lorem Ipsum is that it has ahf mcore or-lgess normal distribution of letters, as opposed to using, Content here content here making it look like readable.</p>
+                                <p>{{jop.description}}.</p>
                             </div>
                             <div class="post-details2  mb-50">
                                  <!-- Small Section Tittle -->
@@ -91,10 +91,10 @@
                            </div>
                           <ul>
                               <li>Posted date : <span>12 Aug 2019</span></li>
-                              <li>Location : <span>New York</span></li>
-                              <li>Vacancy : <span>02</span></li>
-                              <li>Job nature : <span>Full time</span></li>
-                              <li>Salary :  <span>$7,800 yearly</span></li>
+                              <li>Location : <span>{{jop.location}}</span></li>
+                              <li>Vacancy : <span>{{jop.vacancy}}</span></li>
+                              <li>Job nature : <span>{{jop.jop_nature}}</span></li>
+                              <li>Salary :  <span>${{jop.salary_end}}</span></li>
                               <li>Application date : <span>12 Sep 2020</span></li>
                           </ul>
                          <div class="apply-btn2">
@@ -106,12 +106,12 @@
                            <div class="small-section-tittle">
                                <h4>Company Information</h4>
                            </div>
-                              <span>Colorlib</span>
-                              <p>It is a long established fact that a reader will be distracted by the readable content of a page when looking at its layout.</p>
+                              <span>{{jop.company}}</span>
+                              <p>{{jop.company.description}}</p>
                             <ul>
-                                <li>Name: <span>Colorlib </span></li>
-                                <li>Web : <span> colorlib.com</span></li>
-                                <li>Email: <span>carrier.colorlib@gmail.com</span></li>
+                                <li>Name: <span>{{jop.company}} </span></li>
+                                <li>Web : <span> {{jop.company.website}}</span></li>
+                                <li>Email: <span>{{jop.company.email}}</span></li>
                             </ul>
                        </div>
                     </div>
