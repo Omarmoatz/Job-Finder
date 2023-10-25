@@ -1,6 +1,7 @@
 from django.db import models
 from django_countries.fields import CountryField
 from django.utils import timezone
+from django.utils.text import slugify
 
 
 
@@ -23,9 +24,14 @@ class Jop(models.Model):
     jop_nature = models.CharField(choices=JOP_CHOISE , max_length=10)
     description = models.TextField(max_length=5000)
     category = models.ForeignKey('Category', on_delete=models.SET_NULL,null=True, blank=True, related_name='jop_category')
+    slug = models.SlugField(null=True, blank=True)
     
     def __str__(self) :
         return self.title
+    
+    def save(self, *args, **kwargs):
+       self.slug = slugify(self.title)
+       super(Jop, self).save(*args, **kwargs) # Call the real save() method
 
 
 class Category(models.Model):
