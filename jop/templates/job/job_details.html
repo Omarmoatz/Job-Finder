@@ -1,5 +1,4 @@
 {% extends "base.html" %}
-
 {% block body %}
 
     <main>
@@ -29,11 +28,11 @@
                         <div class="single-job-items mb-50">
                             <div class="job-items">
                                 <div class="company-img company-img-details">
-                                    <a href="#"><img src="assets/img/icon/job-list1.png" alt=""></a>
+                                    <a href="#"><img src="{{jop.company.logo.url}}" style="width: 85px;height: 85px;" alt=""></a>
                                 </div>
                                 <div class="job-tittle">
                                     <a href="#">
-                                        <h4>{{job}}</h4>
+                                        <h4>{{jop}}</h4>
                                     </a>
                                     <ul>
                                         <li>{{jop.company}}</li>
@@ -90,7 +89,7 @@
                                <h4>Job Overview</h4>
                            </div>
                           <ul>
-                              <li>Posted date : <span>12 Aug 2019</span></li>
+                              <li>Posted date : <span>{{jop.crated_at|date:" d M o "}}</span></li>
                               <li>Location : <span>{{jop.location}}</span></li>
                               <li>Vacancy : <span>{{jop.vacancy}}</span></li>
                               <li>Job nature : <span>{{jop.jop_nature}}</span></li>
