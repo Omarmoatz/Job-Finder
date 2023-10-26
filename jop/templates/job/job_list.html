@@ -209,8 +209,8 @@
                                 </div>
                                 <!-- Count of Job list End -->
                                 <!-- single-job-content -->
+                                {% for object in jop %}
                                 <div class="single-job-items mb-30">
-                                    {% for object in jop %}
                                         <div class="job-items">
                                             <div class="company-img">
                                                 <a href="#"><img src="{{object.company.logo.url}}" style="width: 85px;height: 85px;" alt=""></a>
@@ -228,11 +228,11 @@
                                         </div>
                                     
                                     <div class="items-link items-link2 f-right">
-                                        <a href="job_details.html">Full Time</a>
+                                        <a href="job_details.html">{{object.jop_nature}}</a>
                                         <span>{{object.crated_at|naturaltime}}</span>
-                                    </div>
-                                    {% endfor %}
+                                    </div>               
                                 </div>
+                                {% endfor %}
                             </div>
                         </section>
                         <!-- Featured_job_end -->
