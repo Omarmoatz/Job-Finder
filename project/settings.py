@@ -40,7 +40,7 @@ INSTALLED_APPS = [
     'django.contrib.humanize',
 
     #3rd apps
-
+    'rest_framework',
     #my apps
     'jop',
 ]
