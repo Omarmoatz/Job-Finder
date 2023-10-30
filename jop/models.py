@@ -32,6 +32,9 @@ class Jop(models.Model):
     def save(self, *args, **kwargs):
        self.slug = slugify(self.title)
        super(Jop, self).save(*args, **kwargs) # Call the real save() method
+    
+    class Meta:
+        ordering = ['-id']
 
 
 class Category(models.Model):
