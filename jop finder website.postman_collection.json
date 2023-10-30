@@ -1,0 +1,204 @@
+{
+	"info": {
+		"_postman_id": "bc394d89-5b9a-43f1-9da9-23da9971793c",
+		"name": "jop finder website",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "30796174",
+		"_collection_link": "https://www.postman.com/orbital-module-observer-4067656/workspace/jop-platform/collection/30796174-bc394d89-5b9a-43f1-9da9-23da9971793c?action=share&source=collection_link&creator=30796174"
+	},
+	"item": [
+		{
+			"name": "jop list",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://127.0.0.1:8000/jop/api/list",
+					"protocol": "http",
+					"host": [
+						"127",
+						"0",
+						"0",
+						"1"
+					],
+					"port": "8000",
+					"path": [
+						"jop",
+						"api",
+						"list"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "jop detail",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://127.0.0.1:8000/jop/api/list/100",
+					"protocol": "http",
+					"host": [
+						"127",
+						"0",
+						"0",
+						"1"
+					],
+					"port": "8000",
+					"path": [
+						"jop",
+						"api",
+						"list",
+						"100"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "jop delete",
+			"request": {
+				"method": "DELETE",
+				"header": [],
+				"url": {
+					"raw": "http://127.0.0.1:8000/jop/api/list/2011",
+					"protocol": "http",
+					"host": [
+						"127",
+						"0",
+						"0",
+						"1"
+					],
+					"port": "8000",
+					"path": [
+						"jop",
+						"api",
+						"list",
+						"2011"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "jop add",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "formdata",
+					"formdata": [
+						{
+							"key": "title",
+							"value": "new jop ",
+							"type": "text"
+						},
+						{
+							"key": "vacancy",
+							"value": "2",
+							"type": "text"
+						},
+						{
+							"key": "experince",
+							"value": "3",
+							"type": "text"
+						},
+						{
+							"key": "jop_nature",
+							"value": "PartTime",
+							"type": "text"
+						},
+						{
+							"key": "description",
+							"value": "any thing ",
+							"type": "text"
+						},
+						{
+							"key": "company",
+							"value": "2",
+							"type": "text"
+						}
+					]
+				},
+				"url": {
+					"raw": "http://127.0.0.1:8000/jop/api/list",
+					"protocol": "http",
+					"host": [
+						"127",
+						"0",
+						"0",
+						"1"
+					],
+					"port": "8000",
+					"path": [
+						"jop",
+						"api",
+						"list"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "jop update",
+			"request": {
+				"method": "PUT",
+				"header": [],
+				"body": {
+					"mode": "formdata",
+					"formdata": [
+						{
+							"key": "title",
+							"value": "new jop updated",
+							"type": "text"
+						},
+						{
+							"key": "vacancy",
+							"value": "2",
+							"type": "text"
+						},
+						{
+							"key": "experince",
+							"value": "3",
+							"type": "text"
+						},
+						{
+							"key": "jop_nature",
+							"value": "PartTime",
+							"type": "text"
+						},
+						{
+							"key": "description",
+							"value": "any thing  updated",
+							"type": "text"
+						},
+						{
+							"key": "company",
+							"value": "2",
+							"type": "text"
+						}
+					]
+				},
+				"url": {
+					"raw": "http://127.0.0.1:8000/jop/api/list/2005",
+					"protocol": "http",
+					"host": [
+						"127",
+						"0",
+						"0",
+						"1"
+					],
+					"port": "8000",
+					"path": [
+						"jop",
+						"api",
+						"list",
+						"2005"
+					]
+				}
+			},
+			"response": []
+		}
+	]
+}
