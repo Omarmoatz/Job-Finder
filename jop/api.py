@@ -17,7 +17,7 @@ class JobListApi(generics.ListCreateAPIView):
     filterset_fields = ['vacancy', 'jop_nature']
     search_fields = ['title', 'salary_start']
     ordering_fields = ['salary_end', 'salary_start', 'experince']
-    
+    permission_classes = [IsAuthenticated]
 
 
 class JobDetailtApi(generics.RetrieveUpdateDestroyAPIView):
