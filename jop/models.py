@@ -31,7 +31,7 @@ class Jop(models.Model):
     
     def save(self, *args, **kwargs):
        self.slug = slugify(self.title)
-       super(Jop, self).save(*args, **kwargs) # Call the real save() method
+       super(Jop, self).save(*args, **kwargs)
     
     class Meta:
         ordering = ['-id']
@@ -52,6 +52,21 @@ class Company(models.Model):
     website = models.URLField()
     email = models.EmailField()
     description = models.TextField(max_length=5000)
+
+    def __str__(self) :
+        return self.name
+    
+
+class JopForm(models.Model):
+    Jop = models.ForeignKey('Jop', on_delete=models.CASCADE, related_name='job_form')
+    name = models.CharField(max_length=50)
+    email = models.EmailField()
+    link_url =models.URLField(null=True, blank=True, help_text='please enter your linked in account')
+    github_url = models.URLField(help_text='please enter your github account')
+    cv = models.FileField(upload_to='cv', help_text='please uplouad your CV')
+    cover_letter =models.TextField(max_length=600, help_text='add your notes here .....')
+    crated_at = models.DateTimeField(default=timezone.now)
+
 
     def __str__(self) :
         return self.name

@@ -1,11 +1,12 @@
 {% extends "base.html" %}
+{% load static %}
 {% block body %}
 
     <main>
 
         <!-- Hero Area Start-->
         <div class="slider-area ">
-        <div class="single-slider section-overly slider-height2 d-flex align-items-center" data-background="assets/img/hero/about.jpg">
+        <div class="single-slider section-overly slider-height2 d-flex align-items-center" data-background="{% static 'assets/img/hero/about.jpg' %}">
             <div class="container">
                 <div class="row">
                     <div class="col-xl-12">
@@ -54,29 +55,11 @@
                             </div>
                             <div class="post-details2  mb-50">
                                  <!-- Small Section Tittle -->
-                                <div class="small-section-tittle">
-                                    <h4>Required Knowledge, Skills, and Abilities</h4>
-                                </div>
-                               <ul>
-                                   <li>System Software Development</li>
-                                   <li>Mobile Applicationin iOS/Android/Tizen or other platform</li>
-                                   <li>Research and code , libraries, APIs and frameworks</li>
-                                   <li>Strong knowledge on software development life cycle</li>
-                                   <li>Strong problem solving and debugging skills</li>
-                               </ul>
+
                             </div>
                             <div class="post-details2  mb-50">
                                  <!-- Small Section Tittle -->
-                                <div class="small-section-tittle">
-                                    <h4>Education + Experience</h4>
-                                </div>
-                               <ul>
-                                   <li>3 or more years of professional design experience</li>
-                                   <li>Direct response email experience</li>
-                                   <li>Ecommerce website design experience</li>
-                                   <li>Familiarity with mobile and web apps preferred</li>
-                                   <li>Experience using Invision a plus</li>
-                               </ul>
+
                             </div>
                         </div>
 
@@ -97,7 +80,7 @@
                               <li>Application date : <span>12 Sep 2020</span></li>
                           </ul>
                          <div class="apply-btn2">
-                            <a href="#" class="btn">Apply Now</a>
+                            <a href="{{jop.slug}}/apply" class="btn">Apply Now</a>
                          </div>
                        </div>
                         <div class="post-details4  mb-50">
