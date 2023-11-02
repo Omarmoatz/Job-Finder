@@ -33,11 +33,11 @@
                                 <div class="small-section-tittle">
                                     <h4>Job apply</h4>
                                 </div>
-                                <form method="post">
+                                <form action="" method="post" enctype="multipart/form-data">
                                     {% csrf_token %}
                                     {% bootstrap_form form %}
                                     {% buttons %}
-                                        <button type="submit" class="btn btn-primary">Submit</button>
+                                        <button type="submit" class="btn btn-primary">apply</button>
                                     {% endbuttons %}
 
                                 </form>

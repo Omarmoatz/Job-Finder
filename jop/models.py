@@ -58,11 +58,11 @@ class Company(models.Model):
     
 
 class JopForm(models.Model):
-    Jop = models.ForeignKey('Jop', on_delete=models.CASCADE, related_name='job_form')
+    Jop = models.ForeignKey(Jop, on_delete=models.CASCADE, related_name='job_form', blank=True, null=True)
     name = models.CharField(max_length=50)
     email = models.EmailField()
     link_url =models.URLField(null=True, blank=True, help_text='please enter your linked in account')
-    github_url = models.URLField(help_text='please enter your github account')
+    github_url = models.URLField(null=True, blank=True, help_text='please enter your github account')
     cv = models.FileField(upload_to='cv', help_text='please uplouad your CV')
     cover_letter =models.TextField(max_length=600, help_text='add your notes here .....')
     crated_at = models.DateTimeField(default=timezone.now)
