@@ -2,6 +2,7 @@ from django.db import models
 from django_countries.fields import CountryField
 from django.utils import timezone
 from django.utils.text import slugify
+from django.core.validators import FileExtensionValidator
 
 
 
@@ -63,7 +64,7 @@ class JopForm(models.Model):
     email = models.EmailField()
     link_url =models.URLField(null=True, blank=True, help_text='please enter your linked in account')
     github_url = models.URLField(null=True, blank=True, help_text='please enter your github account')
-    cv = models.FileField(upload_to='cv', help_text='please uplouad your CV')
+    cv = models.FileField(upload_to='cv', help_text='please uplouad your CV' , validators=[FileExtensionValidator(['pdf'], 'Only PDF files are allowed.')])
     cover_letter =models.TextField(max_length=600, help_text='add your notes here .....')
     crated_at = models.DateTimeField(default=timezone.now)
 
