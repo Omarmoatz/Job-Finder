@@ -2,6 +2,7 @@ from django.shortcuts import render, get_object_or_404
 from django.views import generic
 from django.core.paginator import Paginator, EmptyPage, PageNotAnInteger
 from .models import Jop , JopForm
+from .forms import AddForm
 
 def jop_list(request):
     all_jobs = Jop.objects.all()
@@ -37,5 +38,11 @@ class ApplyForm(generic.CreateView):
         # Add the job to the saved job apply
         form.instance.job = job
         return super().form_valid(form)
+    
 
+class AddJob(generic.CreateView):
+    model = Jop
+    #fields = ['title','location','company','salary_start','salary_end','vacancy','experince','jop_nature','description','category']
+    success_url = '/jop/'
+    form_class = AddForm
     
