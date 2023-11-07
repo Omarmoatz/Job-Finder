@@ -4,6 +4,9 @@ from django.core.paginator import Paginator, EmptyPage, PageNotAnInteger
 from .models import Jop , JopForm
 from .forms import AddForm
 
+
+
+
 def jop_list(request):
     all_jobs = Jop.objects.all()
     job_count = all_jobs.count()
