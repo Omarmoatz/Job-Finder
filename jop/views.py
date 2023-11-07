@@ -5,7 +5,11 @@ from .models import Jop , JopForm
 from .forms import AddForm
 
 
-
+def debug(request):
+    #data = Jop.objects.filter(experince__gt= 6)
+    data = Jop.objects.select_related()
+    #queryset api
+    return render(request, 'jop/debug.html', {'data': data})
 
 def jop_list(request):
     all_jobs = Jop.objects.all()
