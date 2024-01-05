@@ -32,7 +32,7 @@
             <div class="preloader-inner position-relative">
                 <div class="preloader-circle"></div>
                 <div class="preloader-img pere-text">
-                    <img src="{% static 'assets/img/logo/logo.png' %}" alt="">
+                    <img src="{{data.logo.url}}" alt="">
                 </div>
             </div>
         </div>
@@ -47,7 +47,7 @@
                         <div class="col-lg-3 col-md-2">
                             <!-- Logo -->
                             <div class="logo">
-                                <a href="/"><img src="{% static 'assets/img/logo/logo.png' %}" alt=""></a>
+                                <a href="/"><img src="{{data.logo.url}}" alt=""></a>
                             </div>  
                         </div>
                         <div class="col-lg-9 col-md-9">
@@ -103,7 +103,7 @@
                              <div class="footer-tittle">
                                  <h4>About Us</h4>
                                  <div class="footer-pera">
-                                     <p>Heaven frucvitful doesn't cover lesser dvsays appear creeping seasons so behold.</p>
+                                     <p>{{data.about_us}}.</p>
                                 </div>
                              </div>
                          </div>
@@ -116,11 +116,10 @@
                                 <h4>Contact Info</h4>
                                 <ul>
                                     <li>
-                                    <p>Address :Your address goes
-                                        here, your demo address.</p>
+                                    <p>Address :{{data.address}}</p>
                                     </li>
-                                    <li><a href="#">Phone : +8880 44338899</a></li>
-                                    <li><a href="#">Email : info@colorlib.com</a></li>
+                                    <li><a href="#">Phone : {{data.phone}}</a></li>
+                                    <li><a href="#">Email : {{data.email}}</a></li>
                                 </ul>
                             </div>
 
@@ -172,7 +171,7 @@
                     <div class="col-xl-3 col-lg-3 col-md-4 col-sm-6">
                         <!-- logo -->
                         <div class="footer-logo mb-20">
-                        <a href="index.html"><img src="assets/img/logo/logo2_footer.png" alt=""></a>
+                        <a href="index.html"><img src="{{data.logo.url}}" alt=""></a>
                         </div>
                     </div>
                     <div class="col-xl-3 col-lg-3 col-md-4 col-sm-5">
@@ -211,9 +210,9 @@
                          </div>
                          <div class="col-xl-2 col-lg-2">
                              <div class="footer-social f-right">
-                                 <a href="#"><i class="fab fa-facebook-f"></i></a>
-                                 <a href="#"><i class="fab fa-twitter"></i></a>
-                                 <a href="#"><i class="fab fa-linkedin"></i></a>
+                                 <a href="{{data.fb_link}}"><i class="fab fa-facebook-f"></i></a>
+                                 <a href="{{data.twitter_link}}"><i class="fab fa-twitter"></i></a>
+                                 <a href="{{data.linkedIn_link}}"><i class="fab fa-linkedin"></i></a>
                              </div>
                          </div>
                      </div>
