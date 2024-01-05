@@ -5,7 +5,7 @@ jops:
     -company logo
     -company website
     -company email
-    company description
+    -company description
     -salary
     -created at
     -experince
@@ -14,3 +14,19 @@ jops:
     -filter
     -Vacancy 
     -jop description
+
+Blog:
+    -title
+    -image
+    -subtitle
+    -description
+    -created_at
+    -tags
+    -category
+    -comment
+    -auther
+
+contact
+home
+
+accounts

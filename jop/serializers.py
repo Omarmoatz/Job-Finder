@@ -1,7 +1,7 @@
 from rest_framework import serializers
-from .models import Jop
+from .models import Job
 
 class JopSerializer(serializers.ModelSerializer):
     class Meta:
-        model = Jop
+        model = Job
         exclude = ('location',)

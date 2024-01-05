@@ -6,12 +6,12 @@ from rest_framework import generics,filters
 from django_filters.rest_framework import DjangoFilterBackend
 from rest_framework.permissions import IsAuthenticated
 
-from .models import Jop
+from .models import Job
 from .serializers import JopSerializer
 
 
 class JobListApi(generics.ListCreateAPIView):
-    queryset = Jop.objects.all()
+    queryset = Job.objects.all()
     serializer_class = JopSerializer
     filter_backends = [DjangoFilterBackend, filters.SearchFilter, filters.OrderingFilter]
     filterset_fields = ['vacancy', 'jop_nature']
@@ -21,7 +21,7 @@ class JobListApi(generics.ListCreateAPIView):
 
 
 class JobDetailtApi(generics.RetrieveUpdateDestroyAPIView):
-    queryset = Jop.objects.all()
+    queryset = Job.objects.all()
     serializer_class = JopSerializer
 
 
@@ -37,4 +37,5 @@ def job_detail_api(request,id):
     job =Jop.objects.get(id=id)
     data = JopSerializer(job).data
     return Response({'job':data})
+
 '''

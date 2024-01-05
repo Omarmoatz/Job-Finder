@@ -1,6 +1,6 @@
 from django.contrib import admin
 from django_summernote.admin import SummernoteModelAdmin
-from .models import Jop, Company ,Category, JopForm
+from .models import Job, Company ,Category, JobForm
 
 
 class Jop_admin(SummernoteModelAdmin):
@@ -10,10 +10,10 @@ class Jop_admin(SummernoteModelAdmin):
     summernote_fields = '__all__'
 
 
-admin.site.register(Jop,Jop_admin)
+admin.site.register(Job,Jop_admin)
 admin.site.register(Company)
 admin.site.register(Category)
-admin.site.register(JopForm)
+admin.site.register(JobForm)
 
 
 

@@ -3,7 +3,6 @@
 {% load humanize %}
 {% block body %}
     <main>
-
         <!-- Hero Area Start-->
         <div class="slider-area ">
             <div class="single-slider section-overly slider-height2 d-flex align-items-center" data-background="{% static 'assets/img/hero/about.jpg' %}">
@@ -210,7 +209,7 @@
                                 </div>
                                 <!-- Count of Job list End -->
                                 <!-- single-job-content -->
-                                {% for object in jop %}
+                                {% for object in job_list %}
                                 <div class="single-job-items mb-30">
                                         <div class="job-items">
                                             <div class="company-img">
@@ -243,7 +242,7 @@
         </div>
         <!-- Job List Area End -->
         <!--Pagination Start  -->
-        {% if jop.has_other_pages %}
+        {% if is_paginated %}
         <div class="pagination-area pb-115 text-center">
             <div class="container">
                 <div class="row">
@@ -251,22 +250,24 @@
                         <div class="single-wrap d-flex justify-content-center">
                             <nav aria-label="Page navigation example">
                                 <ul class="pagination justify-content-start">
-                                {% if jop.has_previous %}
-                                    <li class="page-item"><a class="page-link" href="?page={{ jop.previous_page_number }}"><span class="ti-angle-left"></span></a></li>
+                                {% if page_obj.has_previous %}
+                                    <li class="page-item"><a class="page-link" href="?page={{ page_obj.previous_page_number }}"><span class="ti-angle-left"></span></a></li>
+                                {% else %}
+                                    <li class="disabled"><span></span></li>
                                 {% endif %}
 
-                                {% for i in jop.paginator.page_range %}
-
-                                    {% if jop.number == i %}
+                                {% for i in paginator.page_range %}
+                                    {% if page_obj.number == i %}
                                         <li class="page-item active"><a class="page-link" href="#">{{ i }} </a></li>
-                                    {% elif i > jop.number|add:'-4' and i < jop.number|add:'4' %}
+                                    {% elif i > page_obj.number|add:'-3' and i < page_obj.number|add:'3' %}
                                         <li class="page-item"><a class="page-link" href="?page={{ i }}">{{ i }}</a></li>
                                     {% endif %}
-
                                 {% endfor %}
 
-                                {% if jop.has_next %}
-                                    <li class="page-item"><a class="page-link" href="?page={{ users.next_page_number }}"><span class="ti-angle-right"></span></a></li>
+                                {% if page_obj.has_next %}
+                                    <li class="page-item"><a class="page-link" href="?page={{ page_obj.next_page_number }}"><span class="ti-angle-right"></span></a></li>
+                                {% else %}
+                                    <li class="disabled"><span></span></li>
                                 {% endif %}
                                 </ul>
                             </nav>

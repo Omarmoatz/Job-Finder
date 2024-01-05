@@ -13,7 +13,7 @@ JOP_CHOISE = (
     ('Freelance','Freelance')
 )
 
-class Jop(models.Model):
+class Job(models.Model):
     title = models.CharField(max_length=150)
     location = CountryField()
     company =models.ForeignKey('Company', on_delete=models.CASCADE, related_name='jop_company')
@@ -32,7 +32,7 @@ class Jop(models.Model):
     
     def save(self, *args, **kwargs):
        self.slug = slugify(self.title)
-       super(Jop, self).save(*args, **kwargs)
+       super(Job, self).save(*args, **kwargs)
     
     class Meta:
         ordering = ['-id']
@@ -58,8 +58,8 @@ class Company(models.Model):
         return self.name
     
 
-class JopForm(models.Model):
-    Jop = models.ForeignKey(Jop, on_delete=models.CASCADE, related_name='job_form', blank=True, null=True)
+class JobForm(models.Model):
+    Jop = models.ForeignKey(Job, on_delete=models.CASCADE, related_name='job_form', blank=True, null=True)
     name = models.CharField(max_length=50)
     email = models.EmailField()
     link_url =models.URLField(null=True, blank=True, help_text='please enter your linked in account')

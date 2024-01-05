@@ -1,9 +1,9 @@
 from django.urls import path
-from .views import jop_list, jop_detail, ApplyForm, AddJob, debug
+from .views import JobList, jop_detail, ApplyForm, AddJob, debug
 from .api import JobDetailtApi , JobListApi
 
 urlpatterns = [
-    path('', jop_list),
+    path('', JobList.as_view()),
     path('debug', debug),
 
     path('add', AddJob.as_view()),
@@ -11,7 +11,7 @@ urlpatterns = [
     path('<slug:slug>/apply', ApplyForm.as_view()),
 
 
-
+    #api
     path('api/list', JobListApi.as_view()),
     path('api/list/<int:pk>', JobDetailtApi.as_view())
 
