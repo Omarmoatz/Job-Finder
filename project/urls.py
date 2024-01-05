@@ -19,8 +19,9 @@ from django.conf import settings
 from django.conf.urls.static import static
 
 urlpatterns = [
+    path('', include('settings.urls')),
     path('admin/', admin.site.urls),
-    path('jop/', include('jop.url')),
+    path('job/', include('jop.urls')), 
     path('summernote/', include('django_summernote.urls')),
     path("__debug__/", include("debug_toolbar.urls")),
 ]

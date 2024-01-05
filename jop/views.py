@@ -25,7 +25,7 @@ def jop_detail(request, slug):
 class ApplyForm(generic.CreateView):
     model = JobForm
     fields = ['name','email','link_url','github_url','cv','cover_letter']
-    success_url ='/jop/'
+    success_url ='/job/'
 
     def form_valid(self, form):
         # Get the slug from the URL
@@ -40,6 +40,6 @@ class ApplyForm(generic.CreateView):
 class AddJob(generic.CreateView):
     model = Job
     #fields = ['title','location','company','salary_start','salary_end','vacancy','experince','jop_nature','description','category']
-    success_url = '/jop/'
+    success_url = '/job/'
     form_class = AddForm
     

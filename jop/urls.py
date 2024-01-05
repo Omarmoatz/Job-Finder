@@ -2,13 +2,15 @@ from django.urls import path
 from .views import JobList, jop_detail, ApplyForm, AddJob, debug
 from .api import JobDetailtApi , JobListApi
 
+app_name = 'job'
+
 urlpatterns = [
-    path('', JobList.as_view()),
     path('debug', debug),
 
-    path('add', AddJob.as_view()),
-    path('<slug:slug>', jop_detail),
-    path('<slug:slug>/apply', ApplyForm.as_view()),
+    path('', JobList.as_view(), name='job_list'),
+    path('<slug:slug>', jop_detail, name='job_detail'),
+    path('add', AddJob.as_view(), name='add_job'),
+    path('<slug:slug>/apply', ApplyForm.as_view(), name='apply_form'),
 
 
     #api
