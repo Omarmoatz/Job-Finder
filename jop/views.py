@@ -1,6 +1,5 @@
 from django.shortcuts import render, get_object_or_404
 from django.views import generic
-from django.core.paginator import Paginator, EmptyPage, PageNotAnInteger
 from django.views.decorators.cache import cache_page
 from .models import Job , JobForm
 from .forms import AddForm

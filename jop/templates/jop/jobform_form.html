@@ -1,11 +1,8 @@
 {% extends "base.html" %}
-
 {% load django_bootstrap5 %}
 {% load static %}
 {% block body %}
-
     <main>
-
         <!-- Hero Area Start-->
         <div class="slider-area ">
         <div class="single-slider section-overly slider-height2 d-flex align-items-center" data-background="{% static 'assets/img/hero/about.jpg' %}">
@@ -41,7 +38,6 @@
                                 
                                     {% bootstrap_button button_type="submit" content="OK" %}
                                     {% bootstrap_button button_type="reset" content="Cancel" %}
-
                                 </form>
                             </div>
                         </div>
@@ -50,8 +46,5 @@
             </div>
         </div>
         <!-- job post company End -->
-
-    </main>
-    
-
+    </main>    
 {% endblock body %}  
