@@ -10,7 +10,6 @@ def debug(request):
     # data = Jop.objects.select_related()
     # queryset api
     # data = Jop.objects.only('title','id')
-
     return render(request, 'jop/debug.html', {'data': data})
 
 class JobList(generic.ListView):

@@ -1,5 +1,6 @@
 {% extends 'base.html' %}
 {% load static %}
+{% load humanize %}
 {% block body %}
     <main>
         <!-- slider Area Start-->
@@ -65,7 +66,7 @@
                             </div>
                             <div class="services-cap">
                                <h5><a href="job_listing.html">{{item.name}}</a></h5>
-                                <span>(653)</span>
+                                <span>({{item.job_num}})</span>
                             </div>
                         </div>
                     </div>
@@ -117,10 +118,10 @@
                         <div class="single-job-items mb-30">
                             <div class="job-items">
                                 <div class="company-img">
-                                    <a href="job_details.html"><img src="{{object.company.logo.url}}" alt=""></a>
+                                    <a href="/job/{{object.slug}}"><img src="{{object.company.logo.url}}" alt=""></a>
                                 </div>
                                 <div class="job-tittle">
-                                    <a href="job_details.html"><h4>{{object}}</h4></a>
+                                    <a href="/job/{{object.slug}}"><h4>{{object}}</h4></a>
                                     <ul>
                                         <li>{{object.company}}</li>
                                         <li><i class="fas fa-map-marker-alt"></i>{{object.location}}</li>
@@ -129,8 +130,8 @@
                                 </div>
                             </div>
                             <div class="items-link f-right">
-                                <a href="job_details.html">Full Time</a>
-                                <span>7 hours ago</span>
+                                <a href="/job/{{object.slug}}">{{object.jop_nature}}</a>
+                                <span>{{object.crated_at|naturaltime}}</span>
                             </div>
                         </div>
                         {% endfor %}
