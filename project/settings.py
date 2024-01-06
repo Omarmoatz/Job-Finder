@@ -52,6 +52,7 @@ INSTALLED_APPS = [
     #my apps
     'jop',
     'settings',
+    'blog',
 ]
 
 REST_FRAMEWORK = {

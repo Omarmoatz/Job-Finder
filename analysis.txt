@@ -19,14 +19,17 @@ Blog:
     -title
     -image
     -subtitle
-    -description
-    -created_at
+    -content
+    -created_at--Blog
     -tags
-    -category
-    -comment
+    -category *
+    -comment*
     -auther
+    -created_at--comment
 
 contact
 home
 
-accounts
+accounts:
+        -login
+        -register
