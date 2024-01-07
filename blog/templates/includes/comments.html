@@ -1,11 +1,15 @@
-<div class="comments-area">
+{% load static %}
     <h4>{{comment|length}} Comments</h4>
     {% for item in comment %}
     <div class="comment-list">
        <div class="single-comment justify-content-between d-flex">
           <div class="user justify-content-between d-flex">
              <div class="thumb">
-                <img src="{{item.user.Profile.image.url}}" alt="">
+                {% if review.user.Profile.image %}
+                    <img src="{{item.user.Profile.image.url}}" alt="">
+                {% else %}
+                    <img src="{% static 'images/user.png' %}" alt="review">
+                {% endif %}  
              </div>
              <div class="desc">
                 <p class="comment">{{item.content}}</p>
@@ -25,4 +29,3 @@
        </div>
     </div>
     {% endfor %}
- </div>

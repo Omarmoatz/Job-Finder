@@ -1,6 +1,8 @@
 from django.shortcuts import render,redirect
 from django.views import generic
 from django.db.models import Count
+from django.http import JsonResponse
+from django.template.loader import render_to_string
 
 from .models import Blog,Comment,Category
 
@@ -41,6 +43,7 @@ def add_comment(request,slug):
         content = comment,
         blog = blog,
     )
-
-    return redirect(f'/blog/{blog.slug}')
+    comments = Comment.objects.filter(blog=blog)
+    html = render_to_string('includes/comments.html',{'comments':comments})
+    return JsonResponse({'html':html})
 
