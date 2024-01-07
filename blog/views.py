@@ -1,4 +1,4 @@
-from django.shortcuts import render
+from django.shortcuts import render,redirect
 from django.views import generic
 from django.db.models import Count
 
@@ -26,4 +26,21 @@ class BlogDetail(generic.DetailView):
         context["blogs"] = Blog.objects.all()[:5]
         return context
     
+def add_comment(request,slug):
+    blog = Blog.objects.get(slug=slug)
+
+    comment = request.POST['comment']
+
+    if request.user.is_authenticated:
+        user = request.user
+    else:
+        user = None
+
+    Comment.objects.create(
+        user = user,
+        content = comment,
+        blog = blog,
+    )
+
+    return redirect(f'/blog/{blog.slug}')
 
