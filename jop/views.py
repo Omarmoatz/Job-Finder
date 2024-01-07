@@ -18,7 +18,7 @@ class JobList(generic.ListView):
 
 def jop_detail(request, slug):
     jobs = Job.objects.get(slug=slug)
-    return render(request, 'jop/job_details.html', {'jop':jobs})
+    return render(request, 'jop/job_detail.html', {'jop':jobs})
 
 
 class ApplyForm(generic.CreateView):
