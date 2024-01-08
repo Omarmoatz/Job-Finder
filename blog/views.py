@@ -14,7 +14,7 @@ class BlogList(generic.ListView):
     def get_context_data(self, **kwargs):
         context = super().get_context_data(**kwargs)
         context["ctgs"] = Category.objects.all().annotate(blog_num=Count('ctg_blog'))
-        context["blogs"] = Blog.objects.all()[:5]
+        context["blogs"] = Blog.objects.all().order_by('-id')[:5]
         return context
     
     
@@ -25,7 +25,7 @@ class BlogDetail(generic.DetailView):
         context = super().get_context_data(**kwargs)
         context["comment"] = Comment.objects.filter(blog=self.get_object()) 
         context["ctgs"] = Category.objects.all().annotate(blog_num=Count('ctg_blog'))
-        context["blogs"] = Blog.objects.all()[:5]
+        context["blogs"] = Blog.objects.all().order_by('-id')[:5]
         return context
     
 def add_comment(request,slug):

@@ -40,7 +40,7 @@
                                 <a class="d-inline-block" href="{% url 'blog:blog_detail' item.slug %}">
                                     <h2>{{item}}</h2>
                                 </a>
-                                <p>{{item.subtitle}}</p>
+                                <p>{{item.subtitle|safe}}</p>
                                 <ul class="blog-info-link">
                                     <li><a href="#"><i class="fa fa-user"></i> {{item.category.tag}}, {{item.category}}</a></li>
                                     <li><a href="#"><i class="fa fa-comments"></i> 03 Comments</a></li>

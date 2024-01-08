@@ -5,11 +5,13 @@ from django.utils.text import slugify
 
 
 class Blog(models.Model):
+    auther = models.ForeignKey("Auther", related_name='auther_blog', on_delete=models.CASCADE)
+    auther_comment = models.TextField(max_length=300,blank=True, null=True)
     title = models.CharField(max_length=200)
     img = models.ImageField( upload_to='blog_img')
     subtitle = models.TextField(max_length=400)
-    content = models.TextField(max_length=2000)
-    qoute = models.TextField(max_length=500)
+    content = models.TextField(max_length=10000)
+    qoute = models.TextField(max_length=1000)
     created_at = models.DateField(default=timezone.now)
     category = models.ForeignKey("Category", related_name='ctg_blog',on_delete=models.SET_NULL,blank=True, null=True)
     slug = models.SlugField(blank=True, null=True)
@@ -21,7 +23,13 @@ class Blog(models.Model):
        self.slug = slugify(self.title)
        super(Blog, self).save(*args, **kwargs)
 
+class Auther(models.Model):
+    name = models.CharField( max_length=50)
+    img = models.ImageField( upload_to='auther_img',blank=True, null=True)
 
+    def __str__(self):
+        return self.name
+    
 class Category(models.Model):
     name = models.CharField(max_length=50, unique=True)
     tag = models.CharField(max_length=50)
