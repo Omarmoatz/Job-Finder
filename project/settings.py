@@ -47,6 +47,7 @@ INSTALLED_APPS = [
     "bootstrap5",
     "debug_toolbar",
     "django_bootstrap5",
+    'drf_yasg',
     
 
     #my apps
