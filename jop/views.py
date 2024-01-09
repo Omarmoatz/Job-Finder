@@ -1,8 +1,10 @@
 from django.shortcuts import render, get_object_or_404
 from django.views import generic
 from django.views.decorators.cache import cache_page
+
 from .models import Job , JobForm
 from .forms import AddForm
+from .myfilter import JobFilter
 
 @cache_page(60 * 15)
 def debug(request):
@@ -15,6 +17,16 @@ def debug(request):
 class JobList(generic.ListView):
     model = Job
     paginate_by= 10
+
+    def get_queryset(self):
+        queryset = super().get_queryset()
+        myfilter = JobFilter(self.request.GET, queryset=queryset)
+        return myfilter.qs
+
+    def get_context_data(self, **kwargs):
+        context = super().get_context_data(**kwargs)
+        context['myfilter'] = JobFilter(self.request.GET, queryset=self.get_queryset())
+        return context
 
 def jop_detail(request, slug):
     jobs = Job.objects.get(slug=slug)
