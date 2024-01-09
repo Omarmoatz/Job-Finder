@@ -6,13 +6,13 @@ from rest_framework import generics,filters
 from django_filters.rest_framework import DjangoFilterBackend
 from rest_framework.permissions import IsAuthenticated
 
-from .models import Job
-from .serializers import JopSerializer
+from .models import Job,Company,Category
+from .serializers import JobSerializer,JobDetailSerializer,CompanySerializer,CategorySerializer
 
 
 class JobListApi(generics.ListCreateAPIView):
     queryset = Job.objects.all()
-    serializer_class = JopSerializer
+    serializer_class = JobSerializer
     filter_backends = [DjangoFilterBackend, filters.SearchFilter, filters.OrderingFilter]
     filterset_fields = ['vacancy', 'jop_nature']
     search_fields = ['title', 'salary_start']
@@ -22,7 +22,18 @@ class JobListApi(generics.ListCreateAPIView):
 
 class JobDetailtApi(generics.RetrieveUpdateDestroyAPIView):
     queryset = Job.objects.all()
-    serializer_class = JopSerializer
+    serializer_class = JobDetailSerializer
+    permission_classes = [IsAuthenticated]
+
+class CompanyListApi(generics.ListCreateAPIView):
+    queryset = Company.objects.all()
+    serializer_class = CompanySerializer
+    permission_classes = [IsAuthenticated]
+
+class CategoryListApi(generics.ListCreateAPIView):
+    queryset = Category.objects.all()
+    serializer_class = CategorySerializer
+    permission_classes = [IsAuthenticated]
 
 
 '''

@@ -1,6 +1,6 @@
 from django.urls import path
 from .views import JobList, jop_detail, ApplyForm, AddJob, debug
-from .api import JobDetailtApi , JobListApi
+from .api import JobDetailtApi , JobListApi,CompanyListApi,CategoryListApi
 
 app_name = 'job'
 
@@ -15,7 +15,9 @@ urlpatterns = [
 
 
     #api
-    path('api/list', JobListApi.as_view()),
-    path('api/list/<int:pk>', JobDetailtApi.as_view())
+    path('api/', JobListApi.as_view()),
+    path('api/<int:pk>', JobDetailtApi.as_view()),
+    path('api/company', CompanyListApi.as_view()),
+    path('api/ctg', CategoryListApi.as_view()),
 
 ]
