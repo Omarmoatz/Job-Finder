@@ -1,6 +1,6 @@
 from django.urls import path
 from .views import BlogList,BlogDetail,add_comment
-from .api import BlogListAPI,BlogDetailAPI
+from .api import BlogListAPI,BlogDetailAPI,CategoryAPI,CommentAPI,auther_list_api
 
 app_name='blog'
 
@@ -11,7 +11,10 @@ urlpatterns = [
 
     #__  API  __
     path('api/',BlogListAPI.as_view()),
-    path('api/<int:pk>',BlogDetailAPI.as_view())
+    path('api/<int:pk>',BlogDetailAPI.as_view()),
+    path('api/ctg',CategoryAPI.as_view()),
+    path('api/comment',CommentAPI.as_view()),
+    path('api/auther',auther_list_api),
 ]
 
 
