@@ -38,10 +38,15 @@ schema_view = get_schema_view(
 )
 
 urlpatterns = [
+    path('accounts/', include('allauth.urls')),
     path('', include('settings.urls')),
     path('admin/', admin.site.urls),
+
     path('job/', include('jop.urls')), 
     path('blog/', include('blog.urls')), 
+
+    # Documentation
+    path('dj-rest-auth/', include('dj_rest_auth.urls')),
     path('summernote/', include('django_summernote.urls')),
     path("__debug__/", include("debug_toolbar.urls")),
 
