@@ -5,8 +5,6 @@ from django.utils.text import slugify
 
 
 class Blog(models.Model):
-    auther = models.ForeignKey("Auther", related_name='auther_blog', on_delete=models.CASCADE)
-    auther_comment = models.TextField(max_length=300,blank=True, null=True)
     title = models.CharField(max_length=200)
     img = models.ImageField( upload_to='blog_img')
     subtitle = models.TextField(max_length=400)
@@ -15,6 +13,8 @@ class Blog(models.Model):
     created_at = models.DateField(default=timezone.now)
     category = models.ForeignKey("Category", related_name='ctg_blog',on_delete=models.SET_NULL,blank=True, null=True)
     slug = models.SlugField(blank=True, null=True)
+    auther = models.ForeignKey("Auther", related_name='auther_blog', on_delete=models.CASCADE)
+    auther_comment = models.TextField(max_length=400,blank=True, null=True)
 
     def __str__(self):
         return self.title

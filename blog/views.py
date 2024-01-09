@@ -5,6 +5,7 @@ from django.http import JsonResponse
 from django.template.loader import render_to_string
 
 from .models import Blog,Comment,Category
+from .forms import BlogForm
 
 
 class BlogList(generic.ListView):
@@ -47,3 +48,7 @@ def add_comment(request,slug):
     html = render_to_string('includes/comments.html',{'comments':comments})
     return JsonResponse({'html':html})
 
+class AddBlog(generic.CreateView):
+    model = Blog
+    form_class = BlogForm
+    success_url = '/blog/'
