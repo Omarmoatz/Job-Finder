@@ -28,11 +28,19 @@ class JobDetailtApi(generics.RetrieveUpdateDestroyAPIView):
 class CompanyListApi(generics.ListCreateAPIView):
     queryset = Company.objects.all()
     serializer_class = CompanySerializer
+    filter_backends = [DjangoFilterBackend, filters.SearchFilter, filters.OrderingFilter]
+    filterset_fields = ['name', 'description']
+    search_fields = ['name', 'description']
+    ordering_fields = ['name', 'description']
     permission_classes = [IsAuthenticated]
 
 class CategoryListApi(generics.ListCreateAPIView):
     queryset = Category.objects.all()
     serializer_class = CategorySerializer
+    filter_backends = [DjangoFilterBackend, filters.SearchFilter, filters.OrderingFilter]
+    filterset_fields = ['name',]
+    search_fields = ['name', ]
+    ordering_fields = ['name', ]
     permission_classes = [IsAuthenticated]
 
 
