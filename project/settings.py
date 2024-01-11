@@ -58,6 +58,7 @@ INSTALLED_APPS = [
     'jop',
     'settings',
     'blog',
+    'accounts'
 ]
 
 REST_FRAMEWORK = {
