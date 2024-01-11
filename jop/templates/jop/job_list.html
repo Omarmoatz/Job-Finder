@@ -80,10 +80,10 @@
                                 <div class="single-job-items mb-30">
                                         <div class="job-items">
                                             <div class="company-img">
-                                                <a href="{{object.slug}}"><img src="{{object.company.logo.url}}" style="width: 85px;height: 85px;" alt=""></a>
+                                                <a href="{% url 'job:job_detail' object.slug %}"><img src="{{object.company.logo.url}}" style="width: 85px;height: 85px;" alt=""></a>
                                             </div>
                                             <div class="job-tittle job-tittle2">
-                                                <a href="{{object.slug}}">
+                                                <a href="{% url 'job:job_detail' object.slug %}">
                                                     <h4>{{object}}</h4>
                                                 </a>
                                                 <ul>
@@ -95,7 +95,7 @@
                                         </div>
                                     
                                     <div class="items-link items-link2 f-right">
-                                        <a href="{{object.slug}}">{{object.jop_nature}}</a>
+                                        <a href="{% url 'job:job_detail' object.slug %}">{{object.jop_nature}}</a>
                                         <span>{{object.crated_at|naturaltime}}</span>
                                     </div>               
                                 </div>
