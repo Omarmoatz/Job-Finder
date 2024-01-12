@@ -1,13 +1,36 @@
-from django.shortcuts import render
+from django.shortcuts import render,redirect
 from .models import Profile
-from .forms import ProfileForm,UserForm
+from .forms import ProfileForm,UserForm,SignUpForm,ActivationForm
+
+from django.core.mail import send_mail
 
 
 def signUp(request):
-    return
+    if request.method == 'POST':
+        signupForm = SignUpForm(request.POST)
+        if signupForm.is_valid():
+            username = signupForm.cleaned_data['username']
+            email = signupForm.cleaned_data['email']
+            
+            # to prevent the user from logining to page without the code
+            form = signupForm.save(commit=False)
+            form.is_active = False
+            form.save()
 
+            profile = Profile.objects.get(user__username=username)
+            send_mail(
+                "Activation Code",
+                f"Welcome {username} Use This Code :{profile.code}",
+                "JopFinder@gmail.com",
+                [email],
+                fail_silently=False,
+            )
+            return redirect(f'/registration/{username}/activate')
+    else:
+        signupForm = SignUpForm()
+    return render(request,'registration/signup.html',{'form':signupForm})
 
-def activat(request):
+def activate(request):
     return
 
 
