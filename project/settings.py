@@ -31,6 +31,10 @@ ALLOWED_HOSTS = []
 # Application definition
 
 INSTALLED_APPS = [
+    #my app
+    'accounts',
+
+    #defalt apps
     'django.contrib.admin',
     'django.contrib.auth',
     'django.contrib.contenttypes',
@@ -53,12 +57,10 @@ INSTALLED_APPS = [
     'allauth.socialaccount',
     'dj_rest_auth',
     
-
     #my apps
     'jop',
     'settings',
     'blog',
-    'accounts'
 ]
 
 REST_FRAMEWORK = {
@@ -201,5 +203,6 @@ if DEBUG:
     mimetypes.add_type("application/javascript", ".js", True)
 
 LOGIN_REDIRECT_URL = '/'
+LOGOUT_REDIRECT_URL = '/'
 
 EMAIL_BACKEND = 'django.core.mail.backends.console.EmailBackend'
