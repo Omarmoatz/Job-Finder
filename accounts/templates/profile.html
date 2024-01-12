@@ -1,0 +1,60 @@
+{% extends "base.html" %}
+{% load static %}
+{% block body %}
+
+    <main>
+
+        <!-- Hero Area Start-->
+        <div class="slider-area ">
+        <div class="single-slider section-overly slider-height2 d-flex align-items-center" data-background="{% static 'assets/img/hero/about.jpg' %}">
+            <div class="container">
+                <div class="row">
+                    <div class="col-xl-12">
+                        <div class="hero-cap text-center">
+                            <h2>MY Profile</h2>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        </div>
+        <!-- Hero Area End -->
+        <!-- job post company Start -->
+        <div class="job-post-company pt-120 pb-120">
+            <div class="container">
+                <div class="row justify-content-between">
+
+                    <!-- Right Content -->
+                    <div class="col-xl-6 col-lg-6 mx-auto">
+                        <div class="post-details3  mb-50">
+                            <!-- Small Section Tittle -->
+                           <div class="small-section-tittle">
+                               <h4 class="ml-180">Profile Overview</h4>
+                           </div>
+                          <ul>
+                              <li>Name : <span>{{profile}}</span></li>
+                              <li>Email : <span>{{profile.user.email}}</span></li>
+                              <li>Phone Number : <span>{{profile.phone_num}}</span></li>
+                              <li>Address :  <span>{{profile.address}}</span></li>
+                          </ul>
+                          <div class="post-details4  mb-50">
+                            <!-- Small Section Tittle -->
+                            <div class="small-section-tittle">
+                                <h4 class="ml-180">Your Image</h4>
+                            </div>
+                                <img class="ml-100" style="width: 300px;height: 300px;" src="{{profile.image.url}}" alt="">
+                          </div>
+                         <div class="apply-btn2">
+                            <a href="" class="btn ml-140">Edite Profile</a>
+                         </div>
+                        </div>
+
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!-- job post company End -->
+
+    </main>
+
+{% endblock body %}  
