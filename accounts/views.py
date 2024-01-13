@@ -68,6 +68,7 @@ def edit_profile(request):
             myProfile = profile_form.save(commit=False)
             myProfile.user = request.user
             myProfile.save()
+            return redirect('/accounts/profile')
     else:
         user_form = UserForm(instance=request.user)
         profile_form = ProfileForm(instance=profile)

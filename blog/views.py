@@ -3,6 +3,8 @@ from django.views import generic
 from django.db.models import Count
 from django.http import JsonResponse
 from django.template.loader import render_to_string
+from django.contrib.auth.decorators import login_required
+from django.contrib.auth.mixins import LoginRequiredMixin
 
 from .models import Blog,Comment,Category
 from .forms import BlogForm
@@ -29,10 +31,11 @@ class BlogDetail(generic.DetailView):
         context["blogs"] = Blog.objects.all().order_by('-id')[:5]
         return context
     
+@login_required
 def add_comment(request,slug):
     blog = Blog.objects.get(slug=slug)
 
-    comment = request.POST['comment']
+    comment_text = request.POST['comment']
 
     if request.user.is_authenticated:
         user = request.user
@@ -41,14 +44,15 @@ def add_comment(request,slug):
 
     Comment.objects.create(
         user = user,
-        content = comment,
+        content = comment_text,
         blog = blog,
     )
-    comments = Comment.objects.filter(blog=blog)
-    html = render_to_string('includes/comments.html',{'comments':comments})
+    comment = Comment.objects.filter(blog=blog)
+    html = render_to_string('includes/comments.html',{'comment':comment})
     return JsonResponse({'html':html})
 
-class AddBlog(generic.CreateView):
+
+class AddBlog(LoginRequiredMixin,generic.CreateView):
     model = Blog
     form_class = BlogForm
     success_url = '/blog/'

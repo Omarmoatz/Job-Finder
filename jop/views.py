@@ -1,6 +1,8 @@
 from django.shortcuts import render, get_object_or_404
 from django.views import generic
 from django.views.decorators.cache import cache_page
+from django.contrib.auth.mixins import LoginRequiredMixin
+from django.contrib.auth.decorators import login_required
 
 from .models import Job , JobForm
 from .forms import AddForm
@@ -28,12 +30,13 @@ class JobList(generic.ListView):
         context['myfilter'] = JobFilter(self.request.GET, queryset=self.get_queryset())
         return context
 
+@login_required
 def jop_detail(request, slug):
     jobs = Job.objects.get(slug=slug)
     return render(request, 'jop/job_detail.html', {'jop':jobs})
 
 
-class ApplyForm(generic.CreateView):
+class ApplyForm(LoginRequiredMixin,generic.CreateView):
     model = JobForm
     fields = ['name','email','link_url','github_url','cv','cover_letter']
     success_url ='/job/'
@@ -48,7 +51,7 @@ class ApplyForm(generic.CreateView):
         return super().form_valid(form)
     
 
-class AddJob(generic.CreateView):
+class AddJob(LoginRequiredMixin,generic.CreateView):
     model = Job
     #fields = ['title','location','company','salary_start','salary_end','vacancy','experince','jop_nature','description','category']
     success_url = '/job/'

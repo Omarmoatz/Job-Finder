@@ -31,7 +31,7 @@
                                 <div class="small-section-tittle">
                                     <h4>Edit Your Profile</h4>
                                 </div>
-                                <form action="{% url 'accounts:profile' %}" method="post" enctype="multipart/form-data">
+                                <form method="post" enctype="multipart/form-data">
                                     {% csrf_token %}
                                     {% bootstrap_form user_form %}
                                     {% bootstrap_form profile_form %}

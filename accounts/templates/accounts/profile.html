@@ -44,7 +44,11 @@
                             <div class="small-section-tittle">
                                 <h4 class="ml-180">Your Image</h4>
                             </div>
-                                <img class="ml-100" style="width: 300px;height: 300px;" src="{{profile.image.url}}" alt="">
+                                {% if profile.image %}
+                                    <img class="ml-100" style="width: 300px;height: 300px;" src="{{profile.image.url}}" alt="img">
+                                {% else %}
+                                    <img src="" alt="plaase choose an image" >
+                                {% endif %}
                           </div>
                          <div class="apply-btn2">
                             <a href="{% url 'accounts:profile_edit' %}" class="btn ml-140">Edit Profile</a>

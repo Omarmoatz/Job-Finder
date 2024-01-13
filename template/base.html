@@ -56,20 +56,30 @@
                                 <div class="main-menu">
                                     <nav class="d-none d-lg-block">
                                         <ul id="navigation">
+                                            <li><a href="/">Home</a></li>
                                             <li><a href="/job">Find a Jobs </a></li>
                                             <li><a href="/blog">Blog</a></li>
                                             <li><a href="/contact">Contact</a></li>
-                                            <li><a href="/accounts/profile">My Profile</a></li>
+                                            {% if request.user.is_authenticated %}
+                                                <li><a href="/accounts/profile">My Profile</a></li>
+                                            {% endif %}
                                         </ul>
                                     </nav>
                                 </div>          
                                 <!-- Header-btn -->
-                                <div class="header-btn d-none f-right d-lg-block">
-                                    <a href="/accounts/signup" class="btn head-btn1">Register</a>
-                                </div>
-                                <div class="header-btn d-none f-right d-lg-block">
-                                    <a href="/accounts/login" class="btn head-btn2">Login</a>
-                                </div>
+                                
+                                {% if request.user.is_authenticated %}
+                                    <div class="header-btn d-none f-right d-lg-block">
+                                        <a href="{% url 'logout' %}" class="btn head-btn2">Logout</a>
+                                    </div> 
+                                {% else %}
+                                    <div class="header-btn d-none f-right d-lg-block">
+                                        <a href="/accounts/signup" class="btn head-btn1">Register</a>
+                                    </div>
+                                    <div class="header-btn d-none f-right d-lg-block">
+                                        <a href="{% url 'login' %}" class="btn head-btn2">Login</a>
+                                    </div>                                    
+                                {% endif %}                                    
                                 <div class="header-btn d-none f-right d-lg-block">
                                     <a href="{% url 'job:add_job' %}" class="btn head-btn1">Add Jop</a>
                                 </div>

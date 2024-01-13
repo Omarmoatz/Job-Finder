@@ -1,6 +1,6 @@
 {% load static %}
-    <h4>{{comments|length}} Comments</h4>
-    {% for item in comments %}
+    <h4>{{comment|length}} Comments</h4>
+    {% for item in comment %}
     <div class="comment-list">
        <div class="single-comment justify-content-between d-flex">
           <div class="user justify-content-between d-flex">
@@ -8,7 +8,7 @@
                 {% if review.user.Profile.image %}
                     <img src="{{item.user.Profile.image.url}}" alt="">
                 {% else %}
-                    <img src="{% static 'images/user.png' %}" alt="review">
+                    <img src="{% static 'images/user.png' %}" alt="comment">
                 {% endif %}  
              </div>
              <div class="desc">
