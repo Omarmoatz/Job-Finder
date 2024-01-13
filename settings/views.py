@@ -1,6 +1,7 @@
 from django.shortcuts import render
 from django.db.models import Count
 
+from .models import Main
 from jop.models import Job,Category,Company
 from blog.models import Blog
 
@@ -13,4 +14,10 @@ def home(request):
         'ctg':category,
         'job':job,
         'blog':blog,
+    })
+
+def contact(request):
+    contact = Main.objects.last()
+    return render(request,'settings/contact.html',{
+        'contact':contact,
     })

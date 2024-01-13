@@ -46,7 +46,6 @@ urlpatterns = [
 
     path('job/', include('jop.urls')), 
     path('blog/', include('blog.urls')), 
-    path('contact/', include('contact.urls')), 
 
     # Documentation
     path('dj-rest-auth/', include('dj_rest_auth.urls')),
