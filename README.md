@@ -1,4 +1,4 @@
-# Jop-Finder
+# Job-Finder
 
 Jop-Finder is a website built using Django, a Python web framework, designed to help users search and find job opportunities. It provides a user-friendly interface for job seekers to explore and apply for relevant job listings.
 
